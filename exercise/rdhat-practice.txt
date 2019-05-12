@@ -1,0 +1,219 @@
+Create a volume group,and set 8M as a extends. Divided a volume group containing 50
+extends on volume group lv (lvshare), make it as ext4 file system, and mounted
+automatically under /mnt/data. And the size of the floating range should set between 380M
+and 400M.
+
+# fdisk
+# partprobe
+# pvcreate /dev/vda6
+# vgcreate -s 8M vg1 /dev/vda6 -s
+# lvcreate -n lvshare -l 50 vg1 -l
+# mkfs.ext4 /dev/vg1/lvshare
+# mkdir -p /mnt/data
+# vim /etc/fstab
+/dev/vg1/lvshare /mnt/data ext4 defaults 0 0
+# mount -a
+# df -h
+
+
+Create a 2G swap partition which take effect automatically at boot-start, and it should not
+affect the original swap partition.
+
+
+# fdisk /dev/sda
+p
+(check Partition table)
+n
+press e to create extended partition, press p to create the main
+partition, and the extended partition is further divided into logical partitions) Enter
++2G
+t
+l
+W
+partx -a /dev/sda
+partprobe
+mkswap /dev/sda8
+Copy UUID
+swapon -a
+vim /etc/fstab
+UUID=XXXXX swap swap defaults 0 0
+(swapon -s)
+
+
+
+
+Change the logical volume capacity named vo from 190M to 300M. and the size of the
+floating range should set between 280 and 320. (This logical volume has been mounted in
+advance.)
+
+
+
+
+# vgdisplay
+(Check the capacity of vg, if the capacity is not enough, need to create pv , vgextend ,
+lvextend)
+# lvdisplay (Check lv)
+# lvextend -L +110M /dev/vg2/lv2
+# resize2fs /dev/vg2/lv2
+mount -a
+(Verify)
+------------------------------------------------------------------------------- (Decrease lvm)
+# umount /media
+# fsck -f /dev/vg2/lv2
+# resize2fs -f /dev/vg2/lv2 100M
+# lvreduce -L 100M /dev/vg2/lv2
+# mount -a
+# lvdisplay (Verify)
+OR
+# e2fsck -f /dev/vg1/lvm02
+# resize2fs -f /dev/vg1/lvm02
+# mount /dev/vg1/lvm01 /mnt
+# lvreduce -L 1G -n /dev/vg1/lvm02
+# lvdisplay (Verify)
+
+
+Create a user named alex, and the user id should be 1234, and the password should be
+alex111.
+
+# useradd -u 1234 alex
+# passwd alex
+alex111
+alex111
+
+
+
+Add user: user1, set uid=601
+Password: redhat
+The user's login shell should be non-interactive.
+
+# useradd -u 601 -s /sbin/nologin user1
+# passwd user1
+redhat
+
+
+Create a 512M partition, make it as ext4 file system, mounted automatically under
+/mnt/data and which take effect automatically at boot-start.
+
+
+# fdisk /dev/vda
+n
++512M
+w
+# partprobe /dev/vda
+# mkfs -t ext4 /dev/vda5
+# mkdir -p /data
+# vim /etc/fstab
+/dev/vda5 /data ext4 defaults 0 0
+# mount -a
+
+
+Qs-1. Configure yum client
+
+Yum baseurl path = http://content.example.com/rhel7.0/x86_64/dvd
+
+Solution:
+
+# cd /etc/yum.repos.d
+# rm -rf *
+# vim devopsage.repo
+
+[devopsage]
+name=yum-repo
+baseurl=http://content.example.com/rhel7.0/x86_64/dvd
+gpgcheck=0
+enabled=1
+:wq
+
+# yum clean all
+# yum list all
+# yum repolist
+
+
+
+Qs-4. Create the “LVM” with the name “fedora” by using 100PE’s from the volume group “redhat”. Consider the PE size as “8MB”. Mount it on /mnt/data with filesystem xfs.
+
+Note: In the exam, you should create an only extended partition, don’t create a primary partition as 3 primary partitions already exist by default. So if you create a primary partition you won’t be able to create a further partition.
+
+Solution:
+
+# fdisk -l
+# fdisk /dev/vda (create a partition with "804M" & give hexa code as "8e" for linux LVM)
+# partx -a /dev/vda (run this CMD twice)
+(or)
+# partprobe
+# pvcreate /dev/vda4
+# vgcreate -s 8M redhat /dev/vda4
+# lvcreate -l 100 -n fedora redhat
+# mkfs.xfs /dev/redhat/fedora
+# blkid
+# mkdir /mnt/date
+
+# vim /etc/fstab
+
+/dev/redhat/fedora /mnt/data xfs defaults 0 0
+
+:wq
+
+# mount -a
+# df -h
+
+
+Qs-6. Extend the SWAP space with “512” MB don’t remove or extend the existing swap. Your new Swap should be mounted at booting time also.
+
+Solution:
+
+# free -m
+# fdisk -l
+# fdisk /dev/vda  // create a partition with 512M & give hexa code as 82
+# partprobe
+   (or)
+# partx -a /dev/vda   // run this CMD twice
+# mkswap /dev/vda5
+# swapon /dev/vda5
+
+# vim /etc/fstab
+
+/dev/vda6 swap swap defaults 0 0
+
+:wq
+
+# mount -a
+# free -m
+
+
+Qs-7. Create a group named “admin”
+
+A user harry and natasha should belongs to “admin” group as a secondary group with users password “wakennym”.
+user sarah should not have access to interactive shell and she should not be a member of “admin” group.
+Solution:
+
+# groupadd admin
+# useradd -G admin harry
+# useradd -G admin natasha
+# useradd -s /sbin/nologin sarah
+# passwd harry
+# passwd natasha
+# passwd sarah
+
+OR
+
+# echo "wakennym" | passwd --stdin sarah
+# echo "wakennym" | passwd --stdin natasha
+# echo "wakennym" | passwd --stdin harry
+# cat /etc/passwd    // Verify the newly created users
+# cat /etc/group
+
+
+
+Qs-8. Create the Directory “/home/admin” with the following characteristics.
+
+Group ownership of “/home/admin” should go to “sysadmin” group.
+The directory should have read, write & access permission for all members of “sysadmin” group but not to any other users. ( It is understood understand that the “root” has full access to all files present in the system).
+Files created under “/home/admin” should get the same group ownership is set to the “sysadmin” group.
+# mkdir /home/admin
+# chgrp sysadmin /home/admin
+# chmod 2770 /home/admin
+# ls -ld /home/admin
+
+
+
