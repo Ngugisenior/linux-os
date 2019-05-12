@@ -1,3 +1,5 @@
+Partitions
+
 Create a volume group,and set 8M as a extends. Divided a volume group containing 50
 extends on volume group lv (lvshare), make it as ext4 file system, and mounted
 automatically under /mnt/data. And the size of the floating range should set between 380M
@@ -273,7 +275,8 @@ UUID=… /xfs xfs defaults 1 2
 
 
 
-Write a Bash script called prog.sh in the /root directory that creates 40 files of 2MB each with the fallocate command in the mounted /xfs directory. Each file has got a name as follows: .file_N where N is a number from 1 to 40.
+Write a Bash script called prog.sh in the /root directory that creates 40 files of 2MB each with the fallocate command in the mounted /xfs directory. Each file has got a name as follows: .file_N where N is a number from 1 toSetup a /home/rhce directory to facilitate collaboration among the rhce group.
+Each member should be able to create files and modify each others’ files, but should not be able to delete any one else’s files in this directory. 40.
 
 
 
@@ -325,5 +328,112 @@ vi /etc/fstab
 
 
 
+---------------------------------------------------------------------------------------------
+                                      FILESYSTEMS
+---------------------------------------------------------------------------------------------
+
+
+
+
+Setup a /home/rhce directory to facilitate collaboration among the rhce group.
+Each member should be able to create files and modify each others’ files, but should not be able to delete any one else’s files in this directory.
+
+
+
+Hint
+# mkdir /home/rhce
+# chown root:rhce /home/rhce
+# chmod 770 /home/rhce
+# chmod +t /home/rhce
+# chmod g+s /home/rhce
+
+
+
+
+
+
+Make sure user bob’s account expires after one week.
+
+
+Hint
+# date -d “+1week”
+# usermod -e YYYY-MM-DD bob
+or # chage -E YYYY-MM-DD bob
+# chage -l bob
+
+
+Add 100MB of swap space to your machine using a logical volume.
+
+
+Hint
+# lvcreate –name lv_swap2 –size 100M vg
+# mkswap /dev/vg/lv_swap2
+# swapon /dev/vg/lv_swap2
+# vi /etc/fstab
+/dev/vg/lv_swap2 swap swap defaults 0 0
+
+
+
+Create user accounts named tony, mike, and john each with the “redhat” password and belonging to a secondary group called “rhce”.
+
+Hint
+# groupadd rhce
+# useradd tony -G rhce; passwd tony
+# useradd mike -G rhce; passwd mike
+# useradd john -G rhce; passwd john
+
+Expand the file system on /home to 2GB in size.
+
+
+
+Hint
+# lvresize -r -L 2G /dev/vg/lv_home
+
+
+
+Create a new user “bob”. Give bob, not in the rhce group, read and write access to /home/rhce.
+
+
+Hint
+# useradd bob
+# passwd bob
+# setfacl -R -m u:bob:rwx /home/rhce
+
+
+
+
+
+Set up the automounter, and configure it to read the DVD on the /misc/dvd directory.
+
+
+Hint
+# yum install -y autofs
+# vi /etc/auto.misc
+dvd -fstype=iso9660,ro,nosuid,nodev :/dev/cdrom
+# service autofs start
+
+
+Qs-2. Configure yum client-side repository using the following URL: http://link_will_be_given_in_the_question/content/rhel7.0/x86_64/dvd
+
+Note: This is not actually a question which contains marks, but in order to solve the rest of the questions you will have to configure Yum other wise installing packages will hardly be possible in the given time period.
+
+Solution:
+
+# yum repolist      // To check the repositories
+# cd /etc/yum.repos.d/
+# vim devopsage.repo
+
+[devopsage]
+gpgcheck = 0
+enabled = 1
+baseurl = http://link_will_be_given_in_the_question/content/rhel7.0/x86_64/dvd
+name = devopsage-tech
+:wq!
+
+# yum repolist
+
+
+disk resizing
+https://www.youtube.com/watch?v=KmmpvmzwE7Y
 
 
