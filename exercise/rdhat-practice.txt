@@ -437,3 +437,72 @@ disk resizing
 https://www.youtube.com/watch?v=KmmpvmzwE7Y
 
 
+
+-------------------------------------------------------------------------------------------
+                              PARTITIONS
+https://www.exam-labs.com/exam/RH302
+-------------------------------------------------------------------------------------------
+
+Make a swap partition having 100MB. Make Automatically Usable at System Boot
+Time.
+
+
+1. Use fdisk /dev/hda To create new partition.
+Type n For New partition
+It will ask for Logical or Primary Partitions. Press l for logical.
+Use the Default by pressing Enter Key.
++100M You can Specify either Last cylinder of Size here.
+Press P to verify the partitions lists and remember the partitions name. Default System ID
+is 83 that means Linux Native.
+Type t to change the System ID of partition.
+Type Partition Number
+Type 82 that means Linux Swap.
+Press w to write on partitions table.
+Either Reboot or use partprobe command.
+mkswap /dev/hda? To create Swap File system on partition.
+swapon /dev/hda? To enable the Swap space from partition.
+free m Verify Either Swap is enabled or not.
+vi /etc/fstab
+/dev/hda? swapswapdefaults 0 0
+Reboot the System and verify that swap is automatically enabled or not.
+
+
+Create the partition having 100MB size and mount it on /mnt/neo
+Use fdisk /dev/hda To create new partition.
+Type n For New partitions
+It will ask for Logical or Primary Partitions. Press l for logical.
+Use the Default by pressing Enter Key.
++100M You can Specify either Last cylinder of Size here.
+Press P to verify the partitions lists and remember the partitions name.
+Press w to write on partitions table.
+Either Reboot or use partprobe command.
+Use mkfs t ext3 /dev/hda? Where ? is your partition number
+Or
+mke2fs j /dev/hda? To create ext3 filesystem.
+mkdir /mnt/neo
+vi /etc/fstab
+
+/dev/hda?/mnt/neoext3defaults1 2
+
+mount /dev/hda? /mnt/neo
+
+
+
+
+
+
+You are new System Administrator and from now you are going to handle the
+system and your main task is Network monitoring, Backup and Restore. But you
+dont know the root password. Change the root password to redhat and login in
+default Runlevel.
+When System Successfully boot, it will ask for username and password. But you dont
+know the roots password. To change the root password you need to boot the system into
+single user mode. You can pass the kernel arguments from the boot loader.
+Restart the System.
+You will get the boot loader GRUB screen.
+Press a and type 1 or s for single mode
+ro root=LABEL=/ rhgb queit s
+System will boot on Single User mode.
+Use passwd command to change.
+Press ctrl+d
+
