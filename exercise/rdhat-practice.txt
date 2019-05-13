@@ -412,84 +412,84 @@ Hint
 dvd -fstype=iso9660,ro,nosuid,nodev :/dev/cdrom
 # service autofs start
 
-
+================================================================================================================================================================================
 Qs-2. Configure yum client-side repository using the following URL: http://link_will_be_given_in_the_question/content/rhel7.0/x86_64/dvd
 
-Note: This is not actually a question which contains marks, but in order to solve the rest of the questions you will have to configure Yum other wise installing packages will hardly be possible in the given time period.
+     Solution:
 
-Solution:
-
-# yum repolist      // To check the repositories
-# cd /etc/yum.repos.d/
-# vim devopsage.repo
-
-[devopsage]
-gpgcheck = 0
-enabled = 1
-baseurl = http://link_will_be_given_in_the_question/content/rhel7.0/x86_64/dvd
-name = devopsage-tech
-:wq!
-
-# yum repolist
+     # yum repolist      // To check the repositories
+     # cd /etc/yum.repos.d/
+     # vim devopsage.repo
 
 
+      [devopsage]
+      gpgcheck = 0
+      enabled = 1
+      baseurl = http://link_will_be_given_in_the_question/content/rhel7.0/x86_64/dvd
+      name = devopsage-tech
+      :wq!
+
+     # yum repolist
+
+============================================================================================
 disk resizing
-https://www.youtube.com/watch?v=KmmpvmzwE7Y
+     https://www.youtube.com/watch?v=KmmpvmzwE7Y
+============================================================================================
 
-
-
+============================================================================================
 -------------------------------------------------------------------------------------------
                               PARTITIONS
 https://www.exam-labs.com/exam/RH302
 -------------------------------------------------------------------------------------------
-
+=============================================================================================
 Make a swap partition having 100MB. Make Automatically Usable at System Boot
 Time.
 
+     Use fdisk /dev/hda To create new partition.
+     Type n For New partition
+     It will ask for Logical or Primary Partitions. Press l for logical.
+     Use the Default by pressing Enter Key.
+     +100M You can Specify either Last cylinder of Size here.
+     Press P to verify the partitions lists and remember the partitions name. Default System ID
+     is 83 that means Linux Native.
+     Type t to change the System ID of partition.
+     Type Partition Number
+     Type 82 that means Linux Swap.
+     Press w to write on partitions table.
+     Either Reboot or use partprobe command.
+     mkswap /dev/hda? To create Swap File system on partition.
+     swapon /dev/hda? To enable the Swap space from partition.
+     free m Verify Either Swap is enabled or not.
+     vi /etc/fstab
+     /dev/hda? swapswapdefaults 0 0
+     Reboot the System and verify that swap is automatically enabled or not.
+=============================================================================================
 
-1. Use fdisk /dev/hda To create new partition.
-Type n For New partition
-It will ask for Logical or Primary Partitions. Press l for logical.
-Use the Default by pressing Enter Key.
-+100M You can Specify either Last cylinder of Size here.
-Press P to verify the partitions lists and remember the partitions name. Default System ID
-is 83 that means Linux Native.
-Type t to change the System ID of partition.
-Type Partition Number
-Type 82 that means Linux Swap.
-Press w to write on partitions table.
-Either Reboot or use partprobe command.
-mkswap /dev/hda? To create Swap File system on partition.
-swapon /dev/hda? To enable the Swap space from partition.
-free m Verify Either Swap is enabled or not.
-vi /etc/fstab
-/dev/hda? swapswapdefaults 0 0
-Reboot the System and verify that swap is automatically enabled or not.
+=============================================================================================
+Create the partition having 100MB size and mount it on /mnt/neo.
+
+     Use fdisk /dev/hda To create new partition.
+     Type n For New partitions
+     It will ask for Logical or Primary Partitions. Press l for logical.
+     Use the Default by pressing Enter Key.
+     +100M You can Specify either Last cylinder of Size here.
+     Press P to verify the partitions lists and remember the partitions name.
+     Press w to write on partitions table.
+     Either Reboot or use partprobe command.
+     Use mkfs t ext3 /dev/hda? Where ? is your partition number
+     Or
+     mke2fs j /dev/hda? To create ext3 filesystem.
+     mkdir /mnt/neo
+    vi /etc/fstab
+
+    /dev/hda?/mnt/neoext3defaults1 2
+
+    mount /dev/hda? /mnt/neo
+
+==============================================================================================
 
 
-Create the partition having 100MB size and mount it on /mnt/neo
-Use fdisk /dev/hda To create new partition.
-Type n For New partitions
-It will ask for Logical or Primary Partitions. Press l for logical.
-Use the Default by pressing Enter Key.
-+100M You can Specify either Last cylinder of Size here.
-Press P to verify the partitions lists and remember the partitions name.
-Press w to write on partitions table.
-Either Reboot or use partprobe command.
-Use mkfs t ext3 /dev/hda? Where ? is your partition number
-Or
-mke2fs j /dev/hda? To create ext3 filesystem.
-mkdir /mnt/neo
-vi /etc/fstab
-
-/dev/hda?/mnt/neoext3defaults1 2
-
-mount /dev/hda? /mnt/neo
-
-
-
-
-
+==============================================================================================
 
 You are new System Administrator and from now you are going to handle the
 system and your main task is Network monitoring, Backup and Restore. But you
