@@ -434,6 +434,7 @@ Qs-2. Configure yum client-side repository using the following URL: http://link_
 ============================================================================================
 disk resizing
      https://www.youtube.com/watch?v=KmmpvmzwE7Y
+     https://www.youtube.com/watch?v=5kVAzxTwy5Q
 ============================================================================================
 
 ============================================================================================
