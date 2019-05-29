@@ -1,0 +1,51 @@
+What is an operating system and a kernel?
+      Kernel: Kernel is the core part of an operating system which manages system resources. 
+              It also acts like a bridge between application and hardware of the computer.
+              It is one of the first programs loaded on start-up (after the Bootloader).
+      Operating System: An operating system is a program that acts as an interface between the software and the computer hardware.
+                        It is an integrated set of specialized programs used to manage overall resources and operations of the computer.
+                        It is a specialized software that controls and monitors the execution of all other programs that reside in the computer,
+                        including application programs and other system software.
+                        
+                        
+Define what a process and a thread is!
+              A process, in the simplest terms, is an executing program. One or more threads run in the context of the process. 
+              A thread is the basic unit to which the operating system allocates processor time. 
+              A thread can execute any part of the process code, including parts currently being executed by another thread.
+              
+              
+Define what a critical section is, what is mutual exclusion?
+              Critical Section: In simple terms a critical section is group of instructions/statements or region of code that need to be executed atomically, 
+                                such as accessing a resource (file, input or output port, global data, etc.).
+                                In concurrent programming, if one thread tries to change the value of shared data at the same time as another thread tries to read
+                                the value (i.e. data race across threads), the result is unpredictable.
+              Mutual Exclusion: Mutual exclusion implies that only one process can be inside the critical section at any time. 
+                                If any other processes require the critical section, they must wait until it is free.
+                                mutual exclusion refers to the requirement of ensuring that no two concurrent processes are in their 
+                                critical section at the same time; it is a basic requirement in concurrency control,
+                                to prevent race conditions
+                                
+What are system calls and interrupts?                                
+                     a system call: is the programmatic way in which a computer program requests a service from the kernel of the operating
+                                system it is executed on. A system call is a way for programs to interact with the operating system.
+                                A computer program makes a system call when it makes a request to the operating system’s kernel.
+                                System call provides the services of the operating system to the user programs via 
+                                Application Program Interface(API).
+                    Interrupts: An interrupt is an event that alters the sequence in which the processor executes instructions.
+                               An interrupt might be planned (specifically requested by the currently running program)
+                               or unplanned (caused by an event that might or might not be related to the currently running program).
+
+
+Define the concept of a semaphore!
+                    Semaphores: are integer variables that are used to solve the critical section problem by using two atomic operations,
+                                wait and signal that are used for process synchronization
+                                
+Define scheduling in the context of processes! What is the difference between preemptive and non-preemptive scheduling? 
+
+
+What is the external and internal fragmentation in the context of memory management?
+
+What is the relocation requirement in the context of memory management?
+
+
+What is the MMU, what is its main purpose?
