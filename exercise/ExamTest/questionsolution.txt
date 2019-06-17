@@ -1,0 +1,111 @@
+What is an operating system and a kernel?
+      Kernel: Kernel is the core part of an operating system which manages system resources. 
+              It also acts like a bridge between application and hardware of the computer.
+              It is one of the first programs loaded on start-up (after the Bootloader).
+      Operating System: An operating system is a program that acts as an interface between the software and the computer hardware.
+                        It is an integrated set of specialized programs used to manage overall resources and operations of the computer.
+                        It is a specialized software that controls and monitors the execution of all other programs that reside in the computer,
+                        including application programs and other system software.
+                        
+                        
+Define what a process and a thread is!
+              A process, in the simplest terms, is an executing program. One or more threads run in the context of the process. 
+              A thread is the basic unit to which the operating system allocates processor time. 
+              A thread can execute any part of the process code, including parts currently being executed by another thread.
+              
+              
+Define what a critical section is, what is mutual exclusion?
+              Critical Section: In simple terms a critical section is group of instructions/statements or region of code that need to be executed atomically, 
+                                such as accessing a resource (file, input or output port, global data, etc.).
+                                In concurrent programming, if one thread tries to change the value of shared data at the same time as another thread tries to read
+                                the value (i.e. data race across threads), the result is unpredictable.
+              Mutual Exclusion: Mutual exclusion implies that only one process can be inside the critical section at any time. 
+                                If any other processes require the critical section, they must wait until it is free.
+                                mutual exclusion refers to the requirement of ensuring that no two concurrent processes are in their 
+                                critical section at the same time; it is a basic requirement in concurrency control,
+                                to prevent race conditions
+                                
+What are system calls and interrupts?                                
+                     a system call: is the programmatic way in which a computer program requests a service from the kernel of the operating
+                                system it is executed on. A system call is a way for programs to interact with the operating system.
+                                A computer program makes a system call when it makes a request to the operating system’s kernel.
+                                System call provides the services of the operating system to the user programs via 
+                                Application Program Interface(API).
+                    Interrupts: An interrupt is an event that alters the sequence in which the processor executes                                             instructions.
+                               An interrupt might be planned (specifically requested by the currently running program)
+                               or unplanned (caused by an event that might or might not be related to the currently running                                   program).
+
+
+Define the concept of a semaphore!
+                    Semaphores: are integer variables that are used to solve the critical section problem by using two atomic                                 operations, wait and signal that are used for process synchronization
+                                
+Define scheduling in the context of processes! What is the difference between preemptive and non-preemptive scheduling?
+                                
+                                
+                                Non Pre-emptive Scheduling: When the currently executing process gives up the CPU                                             voluntarily.
+                                Pre-emptive Scheduling: When the operating system decides to favour another process, pre-                                     empting the currently executing process.
+
+
+What is the external and internal fragmentation in the context of memory management?
+                             Internal fragmentation is the wasted space within each allocated block because of rounding up                                from the actual requested allocation to the allocation granularity.  
+                             External fragmentation is the various free spaced holes that are generated in either your memory                              or disk space.
+                             External fragmented blocks are available for allocation, but may be too small to be of any use.
+
+
+
+What is the relocation requirement in the context of memory management?
+                             Relocation means moving stuff from one place to another. In your case, there is a program which                              contains some absolute addresses, which make sense if the program is located at a certain                                    address A. If the program is loaded to a different address B, we need to update all of these                                  addresses, translating them by B−A. This is address relocation. A loader (a program loading                                  another program to memory) which does this is called a relocating loader.
+
+What is the MMU, what is its main purpose?
+                             A memory management unit translates addresses between the CPU and physical memory.
+                             
+                             separation of one process from another. This protects each process from corrupting the memory of                              other processes
+                             virtual memory. This allows the process to view the system as have much more memory than might                                exist in the system. The operating system detects the “missing” memory and provides access to                                the missing area by adjusting the memory map (used by the MMU).
+                             
+                             
+What is virtual memory? What is a page error?
+                             virtual memory. This allows the process to view the system as have much more memory than might                                exist in the system. The operating system detects the “missing” memory and provides access to                                the missing area by adjusting the memory map (used by the MMU).
+                             A page fault occurs when a program attempts to access a block of memory that is not stored in                                the physical memory, or RAM. The fault notifies the operating system that it must locate the                                  data in virtual memory, then transfer it from the storage device, such as an HDD or SSD, to the                              system RAM.
+                             
+What is the page table and TLB?
+
+What is the difference between character and block device?
+                            A Character ('c') Device is one with which the Driver communicates by sending and receiving                                   single characters (bytes, octets).
+                            A Block ('b') Device is one with which the Driver communicates by sending entire blocks of data.
+                                  Examples for Character Devices: serial ports, parallel ports, sounds cards.
+                                  Examples for Block Devices: hard disks, USB cameras, Disk-On-Key.
+                                  
+What is DMA?
+                           DMA is Direct Memory Access, which is the way a peripheral transfers data in blocks, rather than                              characters. It’s faster, and frees up the CPU to get on with other stuff while the data transfer                              happens independently. Once the block of data transfer is complete, the peripheral device sends an                            Interrupt Request back to the CPU, allowing it to process the data.
+What is RAID?
+                           RAID is a data storage virtualization technology that combines multiple physical disk drive                                  components into one or more logical units for the purposes of data redundancy, performance                                    improvement, or both.
+Define the concept of a file system, what is its main purpose?
+                          a file system (or filesystem ) is an abstraction to store, retrieve and update a set of files.It                             describes the abstract data types used for storing the metadata as well.
+                          The file system is responsible for organizing files and  directories, and keeping track of which                             areas of the media belong to which file and which are not being used. 
+
+What is an i-node?
+                          The inode is a data structure in a Unix-style file system that describes a file-system object such                      as a file or a directory. Each inode stores the attributes and disk block location of the object's data.
+                          
+                          
+                          
+                          
+                          
+Describe the deadlock problem and the different avoiding, predicting, solution techniques.
+What is a deadlock?
+• A situation where two entities have each
+locked some resource
+• Each needs the other’s locked resource to
+continue
+• Neither will unlock till they lock both
+resources
+• Hence, neither can ever make progress 
+Why Are Deadlocks Important?
+• A major peril in cooperating parallel processes
+– They are relatively common in complex applications
+– They result in catastrophic system failures
+• Finding them through debugging is very difficult
+– They happen intermittently and are hard to diagnose
+– They are much easier to prevent at design time
+• Once you understand them, you can avoid them
+– Most deadlocks result from careless/ignorant design
+– An ounce of prevention is worth a pound of cure 
