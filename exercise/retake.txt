@@ -32,4 +32,5 @@
      External fragmentation --> is the various free-spaced holes that are generated in eithier your memory or disk space. external fragmentation are available for
      allocation  although they might be too small to be of any use.
 8). What is the rellocation requirement in the context of memory management?.
-       
+       Rellocation --> means moving stuff fro one place to another
+                   --> In our case there is a program which contains an absolute address, which makes sense if the program is located at certain address A. if the program is                     loaded to a different address B, we need to update all of these addressed, translating them by B-A.
