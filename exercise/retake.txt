@@ -1,0 +1,2 @@
+1). What is an operating system and a kernel?.
+       An Operating system --> is the most important program in a computer it acts as an interface between the userspace programs and the kernel.It manages computer memory and processes as well as all its software and hardware
