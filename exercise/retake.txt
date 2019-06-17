@@ -28,4 +28,4 @@
      Non-Preemptive scheduling --> is a process whereby a currently executing process voluntariry gives up the cpu control.
 
 7). What is Internal and external fragmentation in the context of memory management?
-     
+     Internal fragmentation --> is the wasted space within each allocated block, due to the rounding up of the actual requested allocation to the allocation granularity
