@@ -49,3 +49,6 @@
        physical addresses.
        
        A Translation LookAside Buffer --> is a memory cache that reduces the time taken to access the user memory.
+
+13). What is the difference between character and a block device?
+         A character device --> is one with which the driver communicates by sending and recieving characters (bytes,octets) example: Parallel ports and Serial ports.
