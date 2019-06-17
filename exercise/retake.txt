@@ -43,3 +43,7 @@
 10). What is a Virtual Memory? What is a page error?
         A Virtual Memory --> is the extra more memory addressed by a computer more than the physically installed capacity.
         A Page Error --> occurs when a program attempts to access a block of memory that is not stored in the physical memory or RAM.
+
+11). What is a page table and TLB?
+       A page table is a data structure used by a virtual memory system in a computer operating system that stores the mapping between the virtual addresses and the
+       physical addresses
