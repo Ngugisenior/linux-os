@@ -37,4 +37,5 @@
                        is  loaded to a different address B, we need to update all of these addressed, translating them by B-A.
 
 9). What is MMU and what is its purpose?.
-         Memory Management Unit --> Translates addresses between the cpu and Physical memory. It is used in the separation of processes, this protects processes from corrupting each other.
+         Memory Management Unit --> Translates addresses between the CPU and the physical memory. This is used in the separation of processes it protects processes 
+         running concurrently from corrupting each others processes.
