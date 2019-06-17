@@ -53,3 +53,7 @@
 13). What is the difference between character and a block device?
          A Character device --> is one with which the driver communicates by sending and recieving single characters (bytes,octets) example: Parallel ports and Serial ports.
          A Block device --> is one with which the driver communicates by sending entire blocks of data. example: USB, hard-disks, cameras.
+
+12). What is a DMA?
+         A Direct Memory Access --> it is a process by which a periphery device transfers data in blocks rather than characters. 
+         It is faster and free's up the CPU to go on with other stuff.
