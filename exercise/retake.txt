@@ -50,22 +50,24 @@
        
        A Translation LookAside Buffer --> is a memory cache that reduces the time taken to access the user memory.
 
-13). What is the difference between character and a block device?
+12). What is the difference between character and a block device?
          A Character device --> is one with which the driver communicates by sending and recieving single characters (bytes,octets) example: Parallel ports and Serial ports.
          A Block device --> is one with which the driver communicates by sending entire blocks of data. example: USB, hard-disks, cameras.
 
-12). What is a DMA?
+13). What is a DMA?
          A Direct Memory Access --> it is a process by which a periphery device transfers data in blocks rather than characters. 
          It is faster and free's up the CPU to go on with other stuff.
-13). What is RAID?
+14). What is RAID?
          RAID --> RAID is a data storage virtualization technology that combines multiple physical disk drive components into one or more logical independent 
          units for the purposes of redundancy, performance improvement or both.
 
-14). What is a File-System? and what is its purpose?
+15). What is a File-System? and what is its purpose?
         File-System --> is an abstraction to store retrieve and update a set of files. It describes the abstract data types used for storing the metadata as well.
                     --> The file-system is responsible for organizing files and directories and keeping track of which areas of the media belong to which file and 
                         which are not being used.
 
-15). What is an i-node?
+16). What is an i-node?
          inode --> is a data structure in unix style filesystems that describes a file-system object such as a file or a directory. Each inode stores the 
                    attributes and disk block location of the objects data. Each inode stores the attributes and disk block location of the object data.
+
+
