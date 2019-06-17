@@ -1,2 +1,24 @@
 1). What is an operating system and a kernel?.
        An Operating system --> is the most important program in a computer it acts as an interface between the userspace programs and the kernel.It manages computer memory and processes as well as all its software and hardware
+       A kernel --> is the lowest level of an operating system closer to the hardware. some of its functions include:
+                                                                                                                    -File management.
+                          											    -Memory management
+														    -System calls
+														    -Process management
+														    -network management
+														    -Device drivers
+2). Define what a process is and a thread is?
+     A process --> is an instance of a program execution.
+     A Thread --> is a single sequence stream within a process also known as a lightweight process.In a process threads allow multiple executions of streams.
+
+3). Define what a critical section is and what mutual exclution is?
+     A Critical section --> is a code segment that accesses shared variables/resources and has to be executed as an atomic action.
+     A Mutual Exclusion --> if a process PI is executing in its critical section no other process is allowed to execute in its critical section.
+
+4). What are system calls and interrupts?
+       System calls --> are communications made by programs in the userspace to the kernel.
+       Interrupts --> are signals made to the operating system by a software or a hardware indicating an event that needs immediate attention.
+
+5). Define the concept of Semaphore?
+     A semaphore --> is a data variable or a data structure that allows multiple processes to use data without making it inconsistent.
+6). Define scheduling in the context of processes, what is the difference betwee non-preemptive scheduling and preemptive scheduling ?
