@@ -41,4 +41,4 @@
          running concurrently from corrupting each others processes.
 
 10). What is a Virtual Memory? What is a page error?
-        A Virtual Memory --> is the extra more memory addressed by a computer more than the physically available capacity.
+        A Virtual Memory --> is the extra more memory addressed by a computer more than the physically installed capacity.
