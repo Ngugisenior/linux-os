@@ -21,4 +21,6 @@
 
 5). Define the concept of Semaphore?
      A semaphore --> is a data variable or a data structure that allows multiple processes to use data without making it inconsistent.
+
 6). Define scheduling in the context of processes, what is the difference betwee non-preemptive scheduling and preemptive scheduling ?
+     Scheduling --> is the process of selecting the next set of tasks to be run from a set of runnable processes.
