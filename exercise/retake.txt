@@ -46,4 +46,6 @@
 
 11). What is a page table and TLB?
        A page table is a data structure used by a virtual memory system in a computer operating system that stores the mapping between the virtual addresses and the
-       physical addresses
+       physical addresses.
+       
+       A Translation LookAside Buffer --> is a memory cache that reduces the time taken to access the user memory
