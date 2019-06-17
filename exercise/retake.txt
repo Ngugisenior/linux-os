@@ -24,3 +24,4 @@
 
 6). Define scheduling in the context of processes, what is the difference betwee non-preemptive scheduling and preemptive scheduling ?
      Scheduling --> is the process of selecting the next set of tasks to be run from a set of runnable processes.
+     Preemptive sheduling --> is a process whereby the operating system decides to favour one process preempting the currently executing processes.
