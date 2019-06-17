@@ -63,3 +63,5 @@
 
 14). What is a File-System? and what is its purpose?
         File-System --> is an abstraction to store retrieve and update a set of files. It describes the abstract data types used for storing the metadata as well.
+                    --> The file-system is responsible for organizing files and directories and keeping track of which areas of the media belong to which file and 
+                        which are not being used.
