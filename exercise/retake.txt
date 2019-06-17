@@ -65,3 +65,7 @@
         File-System --> is an abstraction to store retrieve and update a set of files. It describes the abstract data types used for storing the metadata as well.
                     --> The file-system is responsible for organizing files and directories and keeping track of which areas of the media belong to which file and 
                         which are not being used.
+
+15). What is an i-node?
+         inode --> is a data structure in unix style filesystems that describes a file-system object such as a file or a directory. Each inode stores the 
+                   attributes and disk block location of the objects data. Each inode stores the attributes and disk block location of the object data.
