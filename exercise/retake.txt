@@ -33,4 +33,8 @@
      allocation  although they might be too small to be of any use.
 8). What is the rellocation requirement in the context of memory management?.
        Rellocation --> means moving stuff fro one place to another
-                   --> In our case there is a program which contains an absolute address, which makes sense if the program is located at certain address A. if the program is                     loaded to a different address B, we need to update all of these addressed, translating them by B-A.
+                   --> In our case there is a program which contains an absolute address, which makes sense if the program is located at certain address A. if the program 
+                       is  loaded to a different address B, we need to update all of these addressed, translating them by B-A.
+
+9). What is MMU and what is its purpose?.
+         Memory Management Unit --> Translates addresses between the cpu and Physical memory. It is used in the separation of processes, this protects processes from corrupting each other.
