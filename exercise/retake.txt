@@ -57,3 +57,6 @@
 12). What is a DMA?
          A Direct Memory Access --> it is a process by which a periphery device transfers data in blocks rather than characters. 
          It is faster and free's up the CPU to go on with other stuff.
+13). What is RAID?
+         RAID --> RAID is a data storage virtualization technology that combines multiple physical disk drive components into one or more logical independent 
+         units for the purposes of redundancy, performance improvement or both.
