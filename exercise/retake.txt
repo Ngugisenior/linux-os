@@ -31,3 +31,5 @@
      Internal fragmentation --> is the wasted space within each allocated block, due to the rounding up of the actual requested allocation to the allocation granularity.
      External fragmentation --> is the various free-spaced holes that are generated in eithier your memory or disk space. external fragmentation are available for
      allocation  although they might be too small to be of any use.
+8). What is the rellocation requirement in the context of memory management?.
+       
